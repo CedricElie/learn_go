@@ -21,7 +21,7 @@ string - 16 bytes of Caracters
 bool - true, false
 
 # Arrays, Slices and Maps
-
+```
 [1,2,3,4,9]
 ["foo","bar"]
 [7.0,9.43,0.65]
@@ -30,19 +30,20 @@ Maps
 "x" -> 30
 1 -> 100
 "key" - "value"
-
+```
 
 # Storing data in variables
 
 Go is statically typed
 var <variable_name> <data_type> =  <value>
 
+```
 ex:
 var s string = "Hello world"
 var i int = 100
 var b bool = false
 var f float64 = 77.90
-
+```
 # Printing Variables
 
 ```
