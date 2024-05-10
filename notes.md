@@ -12,7 +12,7 @@ int - signed Integers (positive and negative)
 float - numbers with decimasl, float64 is recommended, can be float32 as well
 
 
-# Caracters
+# Characters
 
 string - 16 bytes of Caracters
 
@@ -95,3 +95,94 @@ mt.Printf("Marks: %d",grades)
 >%f floating numbers
 >
 >%.2f floating numbers up to 2 decimal places
+
+# Declaring variables
+
+```
+var user string
+user = "Harry"
+fmt.Println(user)
+```
+
+Data types is important, because it defines the variable that is going to be assigned
+Short hand way, only when they are of the same data type
+```
+var s,t string = "foo","bar"
+fmt.Println(s)
+fmt.Println(t)
+```
+Multiple assignement
+```
+var (
+	s string = "foo"
+	i int = 5)
+
+fmt.Println(s)
+fmt.Println(i)
+
+## Short Variable Declaration
+When go behaves as a dynamically typed variable
+```
+s := "Hello World"
+
+name := "Lisa"
+name = "Peter"
+fmt.Println(name)
+```
+# Varible Scope
+From which part of a program a variable is accessible, and from where it can be referenced
+```
+{
+// Outer blocl
+	{
+		// Inner block
+	}
+}
+```
+
+Inner blocks can access variables declared within outer blocks
+Outer blocks cannot access variables declared within inner blocks
+
+## Local and Global variables
+> Local Variable
+>
+> Declared inside a function or a block
+> not accessible outside the function or the block.
+
+> Global Variables
+>
+> Declared outside of a function or a block
+> Available throughout the lifetime of a program
+> declared at the top of the program outside all functions or blocks
+> Can be accessed from any part of the program
+
+```
+package main
+import ("fmt")
+
+var name string = "Lisa"
+func main() {
+	fmt.Println(name)
+}
+```
+
+# Zero Values
+
+When declaring variables in goland and not giving them a value, go gives them a default value
+This value is known as default value and differs per variable type
+> bool - false
+> int - 0
+> float64 - 0.0
+> string - ""
+```
+package main
+import "fmt"
+
+func main() {
+	var fl float64
+	fmt.Printf("%.2f",fl)
+}
+
+>>> go run main.go
+0.00
+```
