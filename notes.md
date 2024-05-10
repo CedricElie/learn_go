@@ -174,6 +174,7 @@ This value is known as default value and differs per variable type
 > int - 0
 > float64 - 0.0
 > string - ""
+
 ```
 package main
 import "fmt"
