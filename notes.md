@@ -119,6 +119,7 @@ var (
 
 fmt.Println(s)
 fmt.Println(i)
+```
 
 ## Short Variable Declaration
 When go behaves as a dynamically typed variable
