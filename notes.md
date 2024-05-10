@@ -74,17 +74,23 @@ Used for inserting a custom string
 fmt.Printf("Template string %s", Object args(s))
 
 >%v formats the value in a default format
-	var name string = "KodeKloud"
-	fmt.Printf("Nice to see you here, at %v",name)
+var name string = "KodeKloud"
+fmt.Printf("Nice to see you here, at %v",name)
 >
 >%d formats decimal integers
-	var grades int = 42
-	fmt.Printf("Marks: %d",grades)
+var grades int = 42
+mt.Printf("Marks: %d",grades)
 >
 >%T type of the value
+>
 >%c characters
+>
 >%q quoted characters/string
+>
 >%s plain string
+>
 >%t true or false
+>
 >%f floating numbers
+>
 >%.2f floating numbers up to 2 decimal places
