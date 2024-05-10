@@ -145,17 +145,15 @@ Inner blocks can access variables declared within outer blocks
 Outer blocks cannot access variables declared within inner blocks
 
 ## Local and Global variables
-> Local Variable
->
-> Declared inside a function or a block
-> not accessible outside the function or the block.
+### Local Variable
+- Declared inside a function or a block
+- not accessible outside the function or the block.
 
-> Global Variables
->
-> Declared outside of a function or a block
-> Available throughout the lifetime of a program
-> declared at the top of the program outside all functions or blocks
-> Can be accessed from any part of the program
+### Global Variables
+- Declared outside of a function or a block
+- Available throughout the lifetime of a program
+- declared at the top of the program outside all functions or blocks
+- Can be accessed from any part of the program
 
 ```
 package main
