@@ -171,13 +171,10 @@ func main() {
 
 When declaring variables in goland and not giving them a value, go gives them a default value
 This value is known as default value and differs per variable type
-> bool - false
->
-> int - 0
->
-> float64 - 0.0
->
-> string - ""
+- bool - false
+- int - 0
+- float64 - 0.0
+- string - ""
 
 ```
 package main
