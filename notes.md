@@ -62,12 +62,12 @@ fmt.Println("Welcome to ", name, ", ", user)
 It is used to create a new line.
 Placed within string expresiions
 When inserted in a string, all the characters after \n are added to a new line
-
+```
 var name String = "GoDojo"
 var user string = "CK"
 fmt.Print(name,"\n")
 fmt.Print(user)
-
+```
 The Println statement prints and adds a newline
 
 # Printf funtcion - format specifier
