@@ -357,3 +357,24 @@ func main() {
  }
 
 ````
+
+# Constants
+
+Variables whose variables are declared and can't be changed
+
+syntax:
+const <const_name> <data_type> = <value>
+
+Types:
+- Untyped constant, when they are not explicitly given a type at declaration. Allows flexibility
+```
+const age = 12
+const h_name, h_age = "Hermione",12
+```
+- Typed Constats, where you explicitly spcify the type in the declaration. Flexibility is lost
+```
+const name string = "Harry Potter"
+const age int = 12
+```
+
+
