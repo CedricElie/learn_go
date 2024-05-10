@@ -1,3 +1,6 @@
+# learn_go
+My notes learning golang
+
 # Data types
 
 Go is a statically type language
@@ -186,3 +189,171 @@ func main() {
 >>> go run main.go
 0.00
 ```
+
+Zero values of other datatypes
+- int - 0
+- float64 - 0.0
+- string - ""
+- bool -  false
+- pointers,functions, interfaces,maps - nil
+
+
+# User Input - Scanf
+
+fmt.Scanf("%<format specifier> (s)", Object_arguments)
+
+```
+package main
+
+import "fmt"
+
+func main() {
+	var name string
+	fmt.Print("Enter your name: ")
+	fmt.Scanf("%s", &name)
+
+	fmt.Println("Hey there,", name)
+}
+```
+
+Getting multiple inputs
+```
+	fmt.Print("Enter your name & are you a muggle: ")
+	fmt.Scanf("%s %t", &surname, &is_muggle)
+	fmt.Println(name, is_muggle)
+```
+
+## Scanf return values
+cout - the number of arguments that the function writes to
+err - any errow thrown during the execution of the funtion
+
+````
+
+var a string
+var b int
+
+fmt.Print("Enter a string and a number: ")
+count, err := fmt.Scanf("%s %d",&a,&b)
+
+fmt.Println("count : ", count)
+fmt.Println("error: ",err)
+fmt.Println("a: ",a)
+fmt.Println("b: ",b)
+````
+
+# Find the type of variable
+
+- %T format specifier
+- reflect.TypeOf function from the reflect package
+
+```
+	// Type of variable
+	var grades int = 42
+	var message string = "Hello World"
+	var isCheck bool = true
+	var amount float32 = 5466.54
+
+	fmt.Printf("variable grades = %v is of type %T \n", grades, grades)
+	fmt.Printf("variable message = %v is of type %T \n", message, message)
+	fmt.Printf("variable isCheck = %v is of type %T \n", isCheck, isCheck)
+	fmt.Printf("variable amount = %v is of type %T \n", amount, amount)
+```
+
+Using reflect.TypeOf
+
+```
+package main
+import (
+	"fmt"
+	"reflect"
+)
+
+func main() {
+	fmt.Prinf("Type: %v \n", reflect.TypeOf(1000))
+	fmt.Prinf("Type: %v \n", reflect.TypeOf("Cedric"))
+	fmt.Prinf("Type: %v \n", reflect.TypeOf(46.0))
+	fmt.Prinf("Type: %v \n", reflect.TypeOf(true))
+}
+```
+
+Combining
+```
+func main() {
+	var grades int = 42
+	var message string = "hello world"
+
+	fmt.Printf("Variable grades=%v is of type %v \n", grades, reflect.TypeOf(grades))
+	fmt.Printf("Variable message=%v is of type %v \n", message, reflect.TypeOf(message))
+}
+```
+# Converting between data types
+
+Type casting :
+- The process of converting one data type to another is known as Type Casting
+- Data types can be converted to other data types, but this does not guarantee that the value will remain intact
+
+````
+func main() {
+	var i int = 90
+	var f float64 = float64(i)
+	fmt.Printf("%.2f\n",f)
+
+	// Convert float to integers
+	var f float64 = 45.89
+	var i int = int(f)
+	fmt.Printf("%v\n",i)
+
+}
+````
+
+## strconv package
+
+>Itoa()
+- converts integers to string
+- returns one value - string formes with the given integer
+
+```
+import (
+	"fmt"
+	"strconv"
+)
+
+func main() {
+	var i int = 42 
+	var s string = strconv.Itoa(i) // conver int to string
+	fmt.Printf("%q",s)
+}
+```
+> Atoi()
+- Converts string to integer
+- returns two values - the corresponding integer, error(if any).
+
+````
+ import (
+	"fmt"
+	"strconv"
+ )
+
+ func main() {
+	var s string = "200"
+	i,err := strconv.Atoi(s)
+
+	fmt.Printf("%v, %T",i,i)
+	fmt.Printf("%v, %T",err,err)
+ }
+````
+
+````
+ import (
+	"fmt"
+	"strconv"
+ )
+
+ func main() {
+	var s string = "200abc"
+	i, err := strconv.Atoi(s)
+	fmt.Printf("%v, %T",i,i)
+	fmt.Printf("%v, %T",err,err) // Will crash an error for string convertion 200abc to an integer
+ }
+
+````

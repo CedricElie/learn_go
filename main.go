@@ -40,6 +40,6 @@ func main() {
 		fmt.Println(country)
 		fmt.Println(city)
 	}
-	fmt.Println(country)
+	//fmt.Println(country) // will throw an error
 	fmt.Println(city)
 }
