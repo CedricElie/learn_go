@@ -435,7 +435,7 @@ func main() {
 
 && (Logical AND), ||(Logical OR), ! (Logical NOT)
 
-### AND (&&)
+### AND ( && )
 - returns true if both the statements are true
 - returns false when either of the statement is false
 
@@ -452,7 +452,7 @@ func main() {
 }
 ````
 
-### OR (||)
+### OR ( || )
 
 - returns true if one of the statement is true
 - returns false when both statements are false
@@ -522,6 +522,104 @@ func main() {
 	// x %= y means x = x % y
 	var x,y int = 210,20
 	x %= y
-	fmt.Println(10)
+	fmt.Println(x)
 }
 ````
+
+
+## Bitwise Operators
+
+- bitwise AND - &
+	- Takes two numbers as operands and does AND on every bit of two numbers
+	12 = 00001100
+	25 = 00011001
+	     --------
+		 00001000 - answer is 8
+
+	````
+	package main
+	import "fmt"
+
+	func main() {
+		var x,y int = 12,25
+		z := x & y
+		fmt.Println(z) //answer is 8
+	}
+	````
+
+- bitwise OR - |
+	- Takes two numbers as operands and does OR on every bit of two numbers
+	12 = 00001100
+	25 = 00011001
+	     --------
+		 00011101- answer is 29
+	
+	````
+	package main
+	import "fmt"
+
+	func main() {
+		var x,y int = 12,25
+		z := x | y
+		fmt.Println(z) //answer is 29
+	}
+	````
+
+
+- bitwise XOR - ^
+    - takes two numbers as operands and does XOR on every bit of two numbers
+	- The result of XOR is 1 if the two bits are opposite
+
+	12 = 00001100
+	25 = 00011001
+	     --------
+		 00010101- answer is 21
+	````
+	package main
+	import "fmt"
+
+	func main() {
+		var x,y int = 12,25
+		z := x ^ y
+		fmt.Println(z) //answer is 21
+	}
+	````
+
+- bitwise left shift - >>
+	- Shifts all bits towards left by a certain number of specified bits
+
+	212 = 11010100
+	212 << 1
+	11010100 0 = 424 
+	- The bit positions that have been vacated by the left shift operator are filled with 0
+	````
+	package main
+	import "fmt"
+
+	func main() {
+		var x int = 212
+		z := x << 1
+		fmt.Println(z) //answer is 424
+	}
+	```` 
+- bitwise right shift - <<
+	- Shifts all bit towards right by a certain number of specified bit
+	212 = 11010100
+	212 >> 2
+	00 110101 = 53
+
+	- excess bits shifted off to the right are discarded
+	````
+	package main
+	import "fmt"
+
+	func main() {
+		var x int = 212
+		z := x >> 2
+		fmt.Println(z) //answer is 53
+	}
+	````
+
+
+# If-else and else if statements
+
