@@ -377,4 +377,151 @@ const name string = "Harry Potter"
 const age int = 12
 ```
 
+# Operators & Operands
 
+We five types of operators in golang
+- Comparison operators
+- Arithmetic operators
+- Assignment operators
+- bitwise operators
+- Logical operators
+
+## Comparison operators
+
+- Compare two operands and yield a Boolean value.
+- Allow values of the same data type for comparisons
+
+== , != , <, <=, >, >=
+
+ex:
+````
+package main
+import "fmt"
+
+func main() {
+	var city string = "kolkata"
+	var city_2 string = "Calcutta"
+
+	fmt.Println(city == city_2) //false is printed
+	fmt.Println(city != city_2) //true is printed
+}
+````
+
+
+## Arithmetic Operators
+
+- Used to perform common arithmetic operations, such as addition, subtraction, multiplication 
+
++, -, *, /, %, ++, --
+
+ex
+
+ex:
+````
+package main
+import "fmt"
+
+func main() {
+	var a,b string = "foo", "bar"
+
+	fmt.Println(a+b) // prints "foobar"
+}
+````
+
+
+## Logical Operators
+
+- Used to determine the logic between variables or values
+
+&& (Logical AND), ||(Logical OR), ! (Logical NOT)
+
+### AND (&&)
+- returns true if both the statements are true
+- returns false when either of the statement is false
+
+ex:
+
+````
+package main
+import "fmt"
+
+func main() {
+	var x int = 10
+	fmt.Println((x < 100) && (x < 200)) // true
+	fmt.Println((x < 300) && (x < 0))   // false
+}
+````
+
+### OR (||)
+
+- returns true if one of the statement is true
+- returns false when both statements are false
+
+````
+package main
+import "fmt"
+
+func main() {
+	var x int = 10
+	fmt.Println((x < 0) || (x < 200)) // true
+	fmt.Println((x < 0) || (x > 200))   // false
+}
+````
+
+### NOT ( ! )
+
+- unary operator
+- Reverses the results, returns false if the expression evaluates to true and vise versa
+
+````
+package main
+import "fmt"
+
+func main() {
+	var x,y int = 10,20
+	fmt.Println(!(x > y))
+	fmt.Println(!(true))
+	fmt.Println(!(false))
+}
+````
+
+
+## Assignment Operators
+
+- = , assign
+- += , add and assign
+- -= , subtract and assign
+- *= , multiply and assign
+- /= , divide and assign quotient
+- %= , divide and assig modulus
+
+
+
+ex
+````
+package main
+import "fmt"
+
+func main() {
+	// add and assign
+	// x += y means x = x + y
+	var x,y int = 10,20
+	x += y
+	fmt.Println(x) // prints 30
+
+	// x -= y means x = x - y
+	var x,y int = 10,20
+	x += y
+	fmt.Println(x) //print -10
+
+	// x *= y means x = x * y
+	var x,y int = 10,20
+	x *= y
+	fmt.Println(x) // print 200
+
+	// x %= y means x = x % y
+	var x,y int = 210,20
+	x %= y
+	fmt.Println(10)
+}
+````
