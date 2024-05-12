@@ -623,3 +623,213 @@ func main() {
 
 # If-else and else if statements
 
+## If statement
+
+```
+if (condition) {
+	// executes when condition is true
+}
+
+// if .. else
+if condition {
+	// executes when condition is true
+} else {
+	// executes when condition is false
+}
+
+// if .. else if .. else
+if condition_1 {
+	// execute when condition_1 is true
+} else if condition_2 {
+	/* execute when condition_1 is false,
+	and condition_2 is true */
+} else if condition_3 {
+	/* execute when condition_1 and 2 are false,
+	and condition_3 is true */
+} else {
+	// when none of the above conditions are true
+}
+```
+
+ex:
+
+```
+package main
+import "fmt"
+
+func main() {
+	var fruit string = "grapes"
+	if fruit == "apples" {
+		fmt.Println("Fruit is apple")
+	} else {
+		fmt.Println("Fruit is not apple")
+	}
+
+	fruit := "grapes"
+	if fruit == "apple" {
+		fmt.Prinln("I love apples")
+	} else if fruit == "orange {
+		fmt.Println("Oranges are not apples")
+	} else {
+		fmt.Println("no appetite")
+	}
+}
+```
+
+## Switch-case Statement
+
+> syntax 
+
+```
+switch expression {
+
+case value_1:
+	// execute when exp equals to value_1
+case value_2:
+	// execute when exp equals to value_2
+default:
+	// execute when no match is found
+}
+```
+
+> ex
+
+````
+package main
+import "fmt"
+
+func main() {
+	var i int = 100
+	switch i {
+		case 10:
+			fmt.Println,("i is 10")
+		case 100, 200:
+			fmt.Println("i is either 100 or 200")
+		default:
+			fmt.Println("i is either 0, 100 or 200")
+	}
+}
+````
+
+*fallthough* - keyword
+- The *fallthough* keyword is used in switch-case to force the execution flow to fall through the successive case block
+
+````
+package main
+import "fmt"
+
+func main() {
+	var i int 10
+	switch i {
+		case -5:
+			fmt.Println("-5")
+		case 10:
+			fmt.Println("10")
+		case 20:
+			fmt.Println("20")
+		default:
+			fmt.Println("default")
+	}
+
+}
+
+// Prints 
+10
+20 default
+````
+
+### Switch with conditions
+
+````
+package main
+import "fmt"
+
+func main() {
+	var a,b int 10, 20
+	switch {
+		case a+b == 30:
+			fmt.Println("Equal to 30")
+		case a+b <= 30:
+			fmt.Println("less than or equal to 30")
+		default:
+			fmt.Printlnt("Greater than 30")
+	}
+}
+
+// Print 
+equal to 30
+````
+
+
+
+## Looping with the for loop
+
+syntax 
+
+```
+for initialization; condition; post {
+	// statements
+}
+```
+
+````
+package main
+import "fmt"
+
+func main() {
+	for i := 1; i <= 3; i++ {
+		fmt.Println("Hello World")
+	}
+	// another for loop
+
+	i := 1
+	for i <= 5 {
+		fmt.Println( i *i)
+		i += 1
+	}
+}
+````
+
+Break and continue
+
+- the *break* statement ends the loop immediately when it is encountered
+
+````
+package main
+import "fmt"
+
+func main() {
+	for i := 1; i <= 5; i++ {
+		if i == 3 {
+			break
+		}
+		fmt.Println(i)
+	}
+}
+
+// prints
+1
+2
+````
+
+
+- the *continue* statement skips the current iteration of loop and continues with the next iteration
+````
+package main
+import "fmt"
+
+func main() {
+	for i := 1; i <= 5; i++ {
+		if i == 3 {
+			continue
+		}
+		fmt.Println(i)
+	}
+}
+
+// prints
+1
+2
+4
+5
+````

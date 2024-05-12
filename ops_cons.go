@@ -37,7 +37,45 @@ func main() {
 	fmt.Println((x < 0) || (x > 200)) // false
 
 	var j, y int = 10, 20
-	fmt.Println(!(j > y))
-	fmt.Println(!(true))
-	fmt.Println(!(false))
+	fmt.Println(!(j > y)) // output false, since condition is true
+	fmt.Println(!(true))  // output false
+	fmt.Println(!(false)) // output true
+
+	day := "sunday"
+	switch day {
+	case "monday":
+		fmt.Println("monday")
+	case "tuesday":
+		fmt.Println("tuesday")
+	case "wednesday":
+		fmt.Println("wednesday")
+	case "thursday":
+		fmt.Println("thursday")
+	case "friday":
+		fmt.Println("friday")
+	case "saturday", "sunday":
+		fmt.Println("weekend")
+	default:
+		fmt.Println("default")
+	}
+
+	day := "wednesday"
+	switch day {
+	case "monday":
+		fmt.Println("monday")
+	case "tuesday":
+		fmt.Println("tuesday")
+	case "wednesday":
+		fmt.Println("wednesday")
+		fallthrough
+	case "thursday":
+		fmt.Println("thursday")
+		fallthrough
+	case "friday":
+		fmt.Println("friday")
+	case "saturday", "sunday":
+		fmt.Println("weekend")
+	default:
+		fmt.Println("default")
+	}
 }
