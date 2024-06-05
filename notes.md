@@ -925,3 +925,140 @@ func main() {
 ```
 
 
+# Slice
+Continuous segment of an underlying array
+- variable typed (elements can be added or removed)
+- more flexible
+
+3 major compenets
+- pointer	: Points to the first element of the array that is accessible throught the slice
+- lenght 	: number of elements in contains, len()
+- capacity  : number of elements in the un underlying array, counting from the first element in the slice, cap()
+
+## Declaration
+
+<slice_name> := <data_type>{<values>}
+grades := []int{10,20,30}
+
+
+## Create slice from array
+	array[start_index : end_index]
+// end_index element is not included
+
+````
+ func main() {
+	arr := [10]int{10,20,30,40,50,60,70,80,90,100}
+	slice_1 := arr[1:8]
+	fmt.Println(slice_1)
+
+	// sub slice
+	sub_slice := slice[0:3]
+	fmt.Println(sub_slice)
+ }
+
+````
+
+Delcare throught the make function
+````
+slice := make([]<data_type>,length,capacity)
+
+slice := make([]int,5,10)
+````
+
+````
+
+//slice from an array
+fmt.Println("slice from an array")
+a_slice := arr[1:8]
+fmt.Println(cap(arr))
+fmt.Println(cap(a_slice))
+fmt.Println(a_slice)
+
+````
+
+Modifying slice elements modifies the underlying array
+````
+func main() {
+	arr_2 := [5]int{10,20,30,40,50}
+
+	slice_2 := arr_2[:3]
+
+	fmt.Println(arr_2)
+	fmt.Println(slice)
+
+	slice[1] = 10
+	fmt.Println("after modification")
+	fmt.Println(arr_2)
+	fmt.Println(slice)
+}
+````
+
+## Apprending to a slice
+
+syntax
+````
+func append(s []T, vs ...T) []T
+slice = append(slice, element-1, element-2)
+
+slice = append(slice,10,20,30 )
+````
+
+We can apprend a slice to another slice
+````
+slice = append(slice, anotherSlice...)
+
+// Appending to a slice
+fmt.Println("Appending to slices")
+arr_5 := [5]int{10, 20, 30, 40, 50}
+
+slice_5 := arr_5[:2]
+
+arr_6 := [5]int{5, 15, 25, 35, 45}
+slice_6 := arr_6[:2]
+
+new_slice := append(slice_5, slice_6...)
+fmt.Println(new_slice)
+````
+
+## Delete from a slice
+
+````
+arr := [5]int{10,20,30,40,50}
+
+i := 2
+fmt.Println(arr)
+
+slice_1 := arr[:i]
+slice_2 := arr[i+1:]
+
+new_slice := append(slice_1,slice_2...)
+fmt.Println(new_slice)
+````
+
+## Copying from a slice
+Slices must be initialized with the same data type
+
+````
+func copy(dst, src []Type) int
+
+num := copy(dest_slice,src_slice)
+`````
+
+src_slice := []int{10,20,30,40,50}
+dest_slice := make([]int,3)
+
+num := copy(dest_slice,src_slice)
+fmt.Println(dest_slice)
+fmt.Println("Number of elements copied: ", num)
+
+arr := []int{10,20,30,40,50}
+for index, value := range arr {
+	fmt.Println(index, "=>", value)
+}
+
+for _, value := range arr {
+	fmt.Println( value)
+}
+```
+
+# Maps
