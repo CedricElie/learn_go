@@ -1042,8 +1042,9 @@ Slices must be initialized with the same data type
 func copy(dst, src []Type) int
 
 num := copy(dest_slice,src_slice)
-`````
+````
 
+```
 src_slice := []int{10,20,30,40,50}
 dest_slice := make([]int,3)
 
@@ -1062,3 +1063,143 @@ for _, value := range arr {
 ```
 
 # Maps
+
+Unordered collection of key/value pairs.
+Implemented by hash tables
+Provide efficient add, get and delete operations
+
+Declaration
+````
+var <map_name> map[<key_data_type>]<value_data_type>
+	var my_map map[string]int
+
+````
+
+zero value of a map is nil
+Declaring and initializing maps
+````
+ <map_name> := map[<key_data_type>]<value_data_type>{<key_value-pair>}
+
+ codes := map[string]string{"en": "English", "fr": "French"}
+````
+
+
+## Declare and initializing a map - make function
+```
+<map_name> := make(map[<key_data_type>]<value_data_type>,<initial_capacity>)
+```
+
+<initial_capacity> is an optional argument
+
+```
+codes := make(map[string]int)
+fmt.Println(codes)
+
+>> output
+map[]
+```
+
+## Length of a map .len()
+```
+codes := map[string]string{"en": "English", "fr": "French","hi":"Hindi"}
+fmt.Println(len(codes))
+
+>> ouput
+3
+```
+
+
+## Accessing a map
+
+```
+codes := map[string]string{"en": "English", "fr": "French","hi":"Hindi"}
+fmt.Println(codes["en"])
+fmt.Println(codes["ft"])
+fmt.Println(codes["fr"])
+
+>>> ouput
+Engligh
+French
+Hindi
+```
+
+
+## Getting a key 
+
+value, found := map_name[key]
+
+```
+codes := map[string]int{"en":1,"fr":2,"hi":3}
+value, found := codes["en"]
+fmt.Println(found,value)
+
+value, found := codes["hh"]
+fmt.Println(found,value)
+
+>>> ouput
+true 1
+false 0
+```
+
+## Adding items to a map
+
+````
+codes := map[string]string{"en":"English","fr":"French","hi":"Hindi"}
+codes["it"] = "Italian"
+
+fmt.Println(codes)
+````
+
+
+## Update value of specific value
+```
+codes := map[string]string{"en":"English","fr":"French","hi":"Hindi"}
+codes["en"] = "English language"
+fmt.Println(codes)
+```
+
+## deleting key-value pair
+delete(map,key_name)
+
+```
+codes := map[string]string{"en":"English","fr":"French","hi":"Hindi"}
+fmt.Println(codes)
+delete(codes,"en")
+fmt.Println(codes)
+```
+
+## Looping and iterating
+
+````
+func main() {
+	codes := map[string]string{"en":"English","fr":"French","hi":"Hindi"}
+	for key,value := range codes {
+		fmt.Println(key, "=>", value)
+	}
+}
+````
+
+## Truncate a map
+two methods :
+- Iterate over the keys and delete them one-by-one
+- by deleting each key one-by-one
+
+````
+func main() {
+	codes := map[string]string{"en":"English","fr":"French","hi":"Hindi"}
+	for key,value := range codes {
+		delete(codes, key)
+	}
+	fmt.Println(codes)
+}
+````
+
+````
+func main() {
+	codes := map[string]string{"en":"English","fr":"French","hi":"Hindi"}
+	// reinitialize the function
+	code = make(map[string]string)
+	
+	fmt.Println(codes)
+}
+````
