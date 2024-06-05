@@ -833,3 +833,95 @@ func main() {
 4
 5
 ````
+
+# Arrays, slices and maps 
+
+## Arrays
+Array is a collection of similar data elements stored at contiguous memory locations.
+
+
+They are of fixed length
+Elements should be of the same data type
+
+Declaration
+var <array_name> [<size_of_the_array>] <data_type>
+var grades [5] int
+var fruits [3] string
+
+
+````
+package main
+import "fmt"
+
+func main() {
+	var grades [5] int
+	fmt.Println(grades)
+}
+````
+
+## Array initialization
+var grades [3]int = [3]int{10,20,30}
+
+grades := [3]int{10,20,30}
+
+grades := [...]int{10,20,30}
+
+... represents ellipses, we do not need to specify the length, the compiler calculates it for us.
+
+
+## len()
+The length of the array refers to the number of elements stored in the array
+
+usage :
+
+````
+func main() {
+	var fruits [2]string = [2]string{"apples","orange"}
+	fmt.Println(len(fruits))
+}
+````
+
+## Indexes in array, 0 <= index <= len-1
+
+First elements: 0
+Last element : len(-1)
+
+fruits[1] => "orange"
+
+
+````
+var fruits [5]string = [5]string{"apples","oranges","grapes","mango","papaya"}
+fmt.Println(fruits[2])
+
+	// changing indices
+	var grades_2 [5]int = [5]int{90, 80, 70, 60, 50}
+	fmt.Println(grades_2)
+
+	grades_2[1] = 100
+	fmt.Println(grades_2)
+````
+
+## Looping through an array
+
+```
+// Loop with for
+for i := 0; i < len(grades); i++ {
+	fmt.Println(grades[i])
+}
+
+// Loop with range
+for index, element := range grades {
+	fmt.Println(index, "=>", element)
+}
+```
+
+## Multidimensional arrays
+
+```
+func main() {
+	arr := [3][2]int{{2,3},{4,16},{8,64}}
+	fmt.Println(arr[2][1])
+}
+```
+
+
