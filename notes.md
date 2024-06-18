@@ -1203,3 +1203,57 @@ func main() {
 	fmt.Println(codes)
 }
 ````
+
+
+## Playing with maps
+```
+package main
+import "fmt"
+
+func main() {
+  ascii_codes := make(map[string]int)
+  ascii_codes["A"] = 65
+  ascii_codes["F"] = 70
+  ascii_codes["K"] = 75
+  fmt.Println(ascii_codes)
+
+  ascii_codes = make(map[string]int)
+  ascii_codes["U"] = 85
+  fmt.Println(ascii_codes)
+}
+```
+## Playing with Arrays, slices and maps
+
+```
+package main
+
+import "fmt"
+
+func main() {
+	arr := [5]string{"one","two","three"}
+	slice := arr[:3]
+
+	my_map := make(map[int]string)
+
+	for i, el := range slice {
+		my_map[i+1] = el
+	}
+	fmt.Println(my_map)
+}
+```
+
+````
+func main() {
+	arr := [5]int{}
+	my_map := make(map[string]int)
+	my_map["A"] = 65
+	my_map["B"] = 66
+	i := 0
+	
+	for _, values := range my_map {
+		arr[i] = values
+		i += 1
+	}
+	fmt.Println(arr)
+}
+`````
