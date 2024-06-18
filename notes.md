@@ -1240,9 +1240,7 @@ func main() {
 	}
 	fmt.Println(my_map)
 }
-```
 
-````
 func main() {
 	arr := [5]int{}
 	my_map := make(map[string]int)
@@ -1256,4 +1254,205 @@ func main() {
 	}
 	fmt.Println(arr)
 }
-`````
+
+func main() {
+	arr := [5]int{10,20,30,90,100}
+	new_slice := append(arr[:3], arr[4:]...)
+	fmt.Print(new_slice)
+}
+
+func main() {
+	arr := [10]string{"a", "b", "c"}
+	hashmap := make(map[string]int)
+	my_slice := arr[:]
+	fmt.Println(len(my_slice))
+	fmt.Println(cap(my_slice))
+	fmt.Println(len(hashmap))
+}
+```
+
+# Functions
+
+Functions are self contained units of code which carry out a certain job
+
+Syntax: 
+
+```
+func <function_name>(<params>) <return typs> {
+	// body of the function
+}
+
+
+func addNumbers(a int, b int) int {
+	sun := a + b
+	retun sum
+}
+```
+
+Calling a function
+<function_name>(<argument(s)>)
+
+Naming conventions:
+- must begin with a letter
+- can have any number of additional letters and symbols
+- cannot contain spaces
+- case-sensitive
+
+```
+package main
+import "fmt"
+
+func printgreeting(str string)
+{
+	fmt.Println("Hey there,",str)
+}
+
+func main() {
+	printgreeting("Joe")
+}
+
+func returnCube(a int) int {
+	cube := a*a*a
+	fmt.Println("Cube of",a,"=",cube)
+	return a*a*a
+}
+
+func main() {
+	fmt.Print(returnCube(3))
+}
+```
+
+## Return types
+
+Go makes it possible to return multiple values
+
+``` 
+func operation(a int, b int) (int,int) {
+	sum := a + b
+	diff := a - b
+	return sum, diff
+}
+
+func main() {
+	sum, difference := operation(20,10)
+	fmt.Println(sum,difference)
+}
+```
+
+## Veriadic functions
+
+- Function that accepts variable number of arguments
+- It is possible to pass a varying number of arguments of the same type as referenced in the function signature
+- to declare a variadic function, the type of the final parameter is preceded by an ellipsis "..."
+
+syntax:
+
+func <func_name>(param-1 type, param-2 type, para-3 ...type) <return-type>
+
+ex:
+```
+func sumNumbers(numbers ...int) int
+
+func sumNumbers(str string, numbers ...int)
+
+package main
+import "fmt"
+
+func sumNumbers(numbers ...int) int{
+	sum := 0
+	for _, value := range numbers {
+		sum += value
+	}
+	return sum
+}
+
+func printDetails(student string, subjects ...string) {
+	fmt.Println("Hey ",student,", here are your subjects -")
+	for _, sub := range subjects {
+		fmt.Printf(¨%s,",sub)
+	}
+}
+
+func main() {
+	fmt.Println,(sumNumbers())
+	fmt.Println,(sumNumbers(10,20))
+	fmt.Println,(sumNumbers(10,20,30,40,50))
+
+	printDetails("Joe","Physics","Biology")
+}
+```
+
+
+### Blank identifier '_'
+
+Used to ignore the values that are returned by a function.
+
+```
+func f() (int, int) {
+	return 42,53
+}
+
+func main {
+	k; _ := f()
+	fmt.Println(v)
+	 
+}
+
+>> go run main.go 
+	42
+```
+
+
+## Recursive functions
+
+- Recursion is a concept where a function calls itself by direct or indirect means
+
+factorial(5) = 5*4*3*2*1
+
+```
+
+func factorial (n int) int {
+	if n == 1 {
+		return 1
+	}
+	return n * factorial(n-1)
+}
+
+func main() {
+	n := 5
+	result := factorial(n)
+	fmt.Println("Factorial of",n,"is :", result)
+}
+```
+
+## Anonymous functions
+
+A function that is declared without any name identifier to refer to it
+
+ex
+
+````
+func main() {
+	x := func(l int, b int) int {
+		return l * b
+	}
+	fmt.Printf("%T \n",x)
+	fmt.Println(x(20,30))
+}
+
+func main() {
+	x := func(l int, b int) int {
+		return l * b
+	} (20,30)
+	fmt.Printf("%T \n",x)
+	fmt.Println(x)
+}
+
+>> go run main.go
+int
+600
+````
+
+## High Order functions
+- function that receives a function as an argument or returns a function as an output
+
