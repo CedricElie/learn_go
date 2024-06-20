@@ -1456,3 +1456,77 @@ int
 ## High Order functions
 - function that receives a function as an argument or returns a function as an output
 
+
+
+# Pointers
+
+A pointer is a variable that holds memory adress of another variable
+They also point to where the memory is allocated and provide ways to find or even change the value located at the memory location
+
+## Address and Derefence Operator
+
+- & operator : The address of a variable
+- * operatir : Dereference operator. It returns the value at the address
+
+```
+
+package main
+import "fmt"
+
+func main() {
+	i := 10
+	fmt.Printf("%T %v \n",&i,&i)
+	fmt.Printf("%T %v \n", *(&i), *(&i))
+}
+
+>> go run main.go
+	*int 0xx00018c00
+	int 10
+```
+
+## Dereferencing a pointer
+
+	*<pointer_name>
+	*<pointer_name> = <new_value>
+
+```
+package main
+import "fmt"
+
+func main() {
+	s := "hello"
+	fmt.Printf("%T,%v \n",s ,s)
+	ps := &s
+	*ps = "world"
+	fmt.Printf("%T %v \n",s s)
+}
+
+```
+
+## Pass by Value in Functions
+
+- Function is called by directly passing the value of the variable as an argument
+- The parameter is copied into another location of your memory
+- So, when accessing or modyfing the variable within your function, only the copy is accessed or modified, and the original value is never modified
+- All basic types are passed by value
+
+## Pass by reference
+
+- Go supports pointers, allowing you to pass references to values within your program
+- In call by reference/pointer, the address of the variable is passed into the function call as the actual parameter
+- All the operations in the function are performed on the value stored at the address of the actual parameters
+
+````
+func modify(s *string) {
+	*s = "world"
+}
+
+func main() {
+	a := "hello"
+	fmt.Println(a)
+	modify(&a)
+	fmt.Println(a)
+}
+````
+
+
