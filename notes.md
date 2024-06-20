@@ -1529,4 +1529,148 @@ func main() {
 }
 ````
 
+# Struct, Methodes and Interfaces
+
+## Struct
+
+- User defined data type
+- a structure that groups together data elements
+- provide a way to refernece a series of grouped values through a single variable nae
+
+To delcare and initialize a struct
+````
+type <struct_name> struct {
+	// list of fields
+}
+
+type Circle struct {
+	x float64
+	y float64
+	r float54
+}
+
+type Student struct {
+	name string
+	rollNo int
+	marks []int
+	grades map[string]int
+}
+````
+
+Struct - initialization
+
+	var <variable_name> <struct_name>
+	<varible_name> := nex(<struct_name>)
+
+var s Student
+st := new(Student)
+````
+package man
+import "fmt"
+
+type Student struct {
+	name string
+	rollNo int
+	marks []int
+	grade map[string]int
+}
+
+func main(){
+	var s Student
+	fmt.Printf("%+v", s)
+
+	st ;= new(Student)
+	fmt.Printf("%+v", st)
+}
+````
+
+## Struct - initialization
+<variable_name> := <struct_name> {
+	<field_name>: <value>,
+	<field_name>: <value>,
+}
+
+````
+package main
+import "fmt"
+
+type Student struct {
+	name string
+	rollNo int
+}
+
+func main(){
+	st := Student{
+		name: "Joe",
+		rollNo: 12,
+	}
+	fmt.Printf("%+v",st)
+
+	st2 := Student{"Joe",12}
+	fmt.Printf("%+v",st2)
+}
+````
+
+## Accessing struct fields
+
+<variable_name>.<field_name>
+
+## Passing struct to functions
+
+```
+package main
+import "fmt"
+
+type Circle struct {
+	x int
+	y int
+	radius float64
+	area float64
+}
+
+func calcArea(c *Circle) {
+	const PI float64 = 3.14
+	var area float64
+	area = (PI * c.radius * c.radius)
+	(*c).area = area
+}
+
+func main() {
+	c := Circle{ x:5, y:5, radius: 5, area: 9}
+	fmt.Printf("%+x \n", c)
+	calcArea(&c)
+	fmt.Println("%+v \n",c)
+}
+```
+
+
+## Comparing Structs
+
+- Structs of the same type can be compared using Go's equality operators, == and !=
+
+```
+package main
+import "fmt"
+
+type s1 struct {
+	x int
+}
+
+func main() {
+	c := s1{x: 5}
+	c1 := s1{x: 6}
+	c2 := s1{x: 5}
+
+	if c!= c1 {
+		fmt.Println("c and c1 have different values")
+	}
+	if c == c2 {
+		fmt.Println("c is same as c2")
+	}
+}
+```
+
+## Methods
+
+- Similar to a function
 
